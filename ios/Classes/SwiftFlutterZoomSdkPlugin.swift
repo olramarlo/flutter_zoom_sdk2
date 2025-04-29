@@ -576,10 +576,8 @@ public class AuthenticationDelegate: NSObject, MobileRTCAuthDelegate {
             return "Client Incompatible"
         case .tokenWrong:
             return "Token Wrong"
-        case .limitExceededException:
-            return "Limit Exceeded"
-        @unknown default:
-            return ""
+        default:
+            return "Error: \(errorCode.rawValue)"
         }
     }
 }
