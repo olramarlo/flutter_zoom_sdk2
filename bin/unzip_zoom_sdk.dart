@@ -75,6 +75,7 @@ Future<void> checkAndDownloadSDK(String location) async {
 
   var androidRTCLibFile = location + '/android/libs/mobilertc.aar';
   exists = await File(androidRTCLibFile).exists();
+
   if (!exists) {
     await downloadFile(
       Uri.parse(
