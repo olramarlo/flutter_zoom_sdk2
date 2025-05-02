@@ -23,7 +23,9 @@ import us.zoom.sdk.ChatMessageDeleteType;
 import us.zoom.sdk.FreeMeetingNeedUpgradeType;
 import us.zoom.sdk.ICameraControlRequestHandler;
 import us.zoom.sdk.IMeetingArchiveConfirmHandler;
+import us.zoom.sdk.InMeetingChatMessage;
 import us.zoom.sdk.IMeetingInputUserInfoHandler;
+import us.zoom.sdk.IRecoverMeetingHandle;
 import us.zoom.sdk.IRequestLocalRecordingPrivilegeHandler;
 import us.zoom.sdk.InMeetingAudioController;
 import us.zoom.sdk.InMeetingChatController;
@@ -168,11 +170,11 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
         };
 
         //Set custom Notification fro android
-        final CustomizedNotificationData data = new CustomizedNotificationData();
-        data.setContentTitleId(R.string.app_name_zoom_local);
-        data.setLargeIconId(R.drawable.zm_mm_type_emoji);
-        data.setSmallIconId(R.drawable.zm_mm_type_emoji);
-        data.setSmallIconForLorLaterId(R.drawable.zm_mm_type_emoji);
+//        final CustomizedNotificationData data = new CustomizedNotificationData();
+//        data.setContentTitleId(R.string.app_name_zoom_local);
+//        data.setLargeIconId(R.drawable.zm_mm_type_emoji);
+//        data.setSmallIconId(R.drawable.zm_mm_type_emoji);
+//        data.setSmallIconForLorLaterId(R.drawable.zm_mm_type_emoji);
 
         ZoomSDKInitializeListener listener = new ZoomSDKInitializeListener() {
             /**
@@ -190,7 +192,7 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
 
                 ZoomSDK zoomSDK = ZoomSDK.getInstance();
                 ZoomSDK.getInstance().getMeetingSettingsHelper().enableShowMyMeetingElapseTime(true);
-                ZoomSDK.getInstance().getMeetingSettingsHelper().setCustomizedNotificationData(data, handle);
+//                ZoomSDK.getInstance().getMeetingSettingsHelper().setCustomizedNotificationData(data, handle);
 
                 MeetingService meetingService = zoomSDK.getMeetingService();
                 meetingStatusChannel.setStreamHandler(new StatusStreamHandler(meetingService));
@@ -299,358 +301,320 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
 
             @Override
             public void onWebinarNeedInputScreenName(InMeetingEventHandler inMeetingEventHandler) {
-
             }
 
             @Override
             public void onMeetingNeedCloseOtherMeeting(InMeetingEventHandler inMeetingEventHandler) {
-
             }
 
             @Override
             public void onMeetingFail(int i, int i1) {
-
             }
 
             @Override
             public void onMeetingLeaveComplete(long l) {
-
             }
 
             @Override
             public void onMeetingUserJoin(List<Long> list) {
-
             }
 
             @Override
             public void onMeetingUserLeave(List<Long> list) {
-
             }
 
             @Override
             public void onMeetingUserUpdated(long l) {
-
             }
 
             @Override
             public void onInMeetingUserAvatarPathUpdated(long l) {
-
             }
 
             @Override
             public void onMeetingHostChanged(long l) {
-
             }
 
             @Override
             public void onMeetingCoHostChange(long l, boolean b) {
-
             }
 
             @Override
             public void onActiveVideoUserChanged(long l) {
-
             }
 
             @Override
             public void onActiveSpeakerVideoUserChanged(long l) {
-
             }
 
             @Override
             public void onHostVideoOrderUpdated(List<Long> list) {
-
             }
 
             @Override
             public void onFollowHostVideoOrderChanged(boolean b) {
-
             }
 
             @Override
             public void onSpotlightVideoChanged(List<Long> list) {
-
             }
 
             @Override
             public void onUserVideoStatusChanged(long l, VideoStatus videoStatus) {
-
             }
 
             @Override
             public void onSinkMeetingVideoQualityChanged(VideoQuality videoQuality, long l) {
-
             }
 
             @Override
             public void onMicrophoneStatusError(InMeetingAudioController.MobileRTCMicrophoneError mobileRTCMicrophoneError) {
-
             }
 
             @Override
             public void onUserAudioStatusChanged(long l, AudioStatus audioStatus) {
-
             }
 
             @Override
             public void onHostAskUnMute(long l) {
-
             }
 
             @Override
             public void onHostAskStartVideo(long l) {
-
             }
 
             @Override
             public void onUserAudioTypeChanged(long l) {
-
             }
 
             @Override
             public void onMyAudioSourceTypeChanged(int i) {
-
             }
 
             @Override
             public void onLowOrRaiseHandStatusChanged(long l, boolean b) {
-
             }
 
             @Override
             public void onChatMessageReceived(InMeetingChatMessage inMeetingChatMessage) {
-
             }
 
             @Override
             public void onChatMsgDeleteNotification(String s, ChatMessageDeleteType chatMessageDeleteType) {
-
             }
 
             @Override
             public void onShareMeetingChatStatusChanged(boolean b) {
-
             }
 
             @Override
             public void onSilentModeChanged(boolean b) {
-
             }
 
             @Override
             public void onFreeMeetingReminder(boolean b, boolean b1, boolean b2) {
-
             }
 
             @Override
             public void onMeetingActiveVideo(long l) {
-
-            }
-
-            @Override
-            public void onSinkAttendeeChatPriviledgeChanged(int i) {
-
             }
 
             @Override
             public void onSinkAllowAttendeeChatNotification(int i) {
-
             }
 
             @Override
             public void onSinkPanelistChatPrivilegeChanged(InMeetingChatController.MobileRTCWebinarPanelistChatPrivilege mobileRTCWebinarPanelistChatPrivilege) {
-
             }
 
             @Override
             public void onUserNamesChanged(List<Long> list) {
-
             }
 
             @Override
             public void onFreeMeetingNeedToUpgrade(FreeMeetingNeedUpgradeType freeMeetingNeedUpgradeType, String s) {
-
             }
 
             @Override
             public void onFreeMeetingUpgradeToGiftFreeTrialStart() {
-
             }
 
             @Override
             public void onFreeMeetingUpgradeToGiftFreeTrialStop() {
-
             }
 
             @Override
             public void onFreeMeetingUpgradeToProMeeting() {
-
             }
 
             @Override
             public void onClosedCaptionReceived(String s, long l) {
-
             }
 
             @Override
             public void onRecordingStatus(RecordingStatus recordingStatus) {
-
             }
 
             @Override
             public void onLocalRecordingStatus(long l, RecordingStatus recordingStatus) {
-
             }
 
             @Override
             public void onInvalidReclaimHostkey() {
-
             }
 
             @Override
             public void onPermissionRequested(String[] strings) {
-
             }
 
             @Override
             public void onAllHandsLowered() {
-
             }
 
             @Override
             public void onLocalVideoOrderUpdated(List<Long> list) {
-
             }
 
             @Override
             public void onLocalRecordingPrivilegeRequested(IRequestLocalRecordingPrivilegeHandler iRequestLocalRecordingPrivilegeHandler) {
-
             }
 
             @Override
             public void onSuspendParticipantsActivities() {
-
             }
 
             @Override
             public void onAllowParticipantsStartVideoNotification(boolean b) {
-
             }
 
             @Override
             public void onAllowParticipantsRenameNotification(boolean b) {
-
             }
 
             @Override
             public void onAllowParticipantsUnmuteSelfNotification(boolean b) {
-
             }
 
             @Override
             public void onAllowParticipantsShareWhiteBoardNotification(boolean b) {
-
             }
 
             @Override
             public void onMeetingLockStatus(boolean b) {
-
             }
 
             @Override
             public void onRequestLocalRecordingPrivilegeChanged(LocalRecordingRequestPrivilegeStatus localRecordingRequestPrivilegeStatus) {
-
             }
 
             @Override
             public void onAICompanionActiveChangeNotice(boolean b) {
-
             }
 
             @Override
             public void onParticipantProfilePictureStatusChange(boolean b) {
-
             }
 
             @Override
             public void onCloudRecordingStorageFull(long l) {
-
             }
 
             @Override
             public void onUVCCameraStatusChange(String s, UVCCameraStatus uvcCameraStatus) {
-
             }
 
             @Override
             public void onFocusModeStateChanged(boolean b) {
-
             }
 
             @Override
             public void onFocusModeShareTypeChanged(MobileRTCFocusModeShareType mobileRTCFocusModeShareType) {
-
             }
 
             @Override
             public void onVideoAlphaChannelStatusChanged(boolean b) {
-
             }
 
             @Override
             public void onAllowParticipantsRequestCloudRecording(boolean b) {
-
             }
 
             @Override
             public void onSinkJoin3rdPartyTelephonyAudio(String s) {
-
             }
 
             @Override
             public void onUserConfirmToStartArchive(IMeetingArchiveConfirmHandler iMeetingArchiveConfirmHandler) {
+            }
 
+            @Override
+            public void onUserConfirmRecoverMeeting(IRecoverMeetingHandle iRecoverMeetingHandle) {
             }
 
             @Override
             public void onCameraControlRequestReceived(long l, CameraControlRequestType cameraControlRequestType, ICameraControlRequestHandler iCameraControlRequestHandler) {
-
             }
 
             @Override
             public void onCameraControlRequestResult(long l, boolean b) {
-
             }
 
             @Override
             public void onCameraControlRequestResult(long l, CameraControlRequestResult cameraControlRequestResult) {
-
             }
 
             @Override
             public void onFileSendStart(ZoomSDKFileSender zoomSDKFileSender) {
-
             }
 
             @Override
             public void onFileReceived(ZoomSDKFileReceiver zoomSDKFileReceiver) {
-
             }
 
             @Override
             public void onFileTransferProgress(ZoomSDKFileTransferInfo zoomSDKFileTransferInfo) {
-
             }
 
             @Override
             public void onMuteOnEntryStatusChange(boolean b) {
-
             }
 
             @Override
             public void onMeetingTopicChanged(String s) {
-
             }
+
+            @Override
+            public void onRemoveCompanionRelation(long s) {
+            }
+
+            @Override
+            public void onCreateCompanionRelation(long s, long t) {
+            }
+
+            @Override
+            public void onVirtualNameTagRosterInfoUpdated(long s) {
+            }
+
+            @Override
+            public void onVirtualNameTagStatusChanged(boolean b, long s) {
+            }
+
+            @Override
+            public void onBotAuthorizerRelationChanged(long s) {
+            }
+
+            @Override
+            public void onMeetingFullToWatchLiveStream(String s) {
+            }
+
+            @Override
+            public void onSinkAttendeeChatPrivilegeChanged(int i) {
+            }
+
+            @Override
+            public void onChatMessageEditNotification(InMeetingChatMessage m) {
+            }
+
         });
 
         meetingService = zoomSDK.getMeetingService();
