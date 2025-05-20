@@ -629,9 +629,14 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
         opts.no_audio = parseBoolean(options, "noAudio");
         opts.no_webinar_register_dialog = true;
         boolean view_options = parseBoolean(options, "viewOptions");
+
         if (view_options) {
             opts.meeting_views_options = MeetingViewsOptions.NO_TEXT_MEETING_ID + MeetingViewsOptions.NO_TEXT_PASSWORD;
         }
+
+        opts.no_record = true;
+        opts.no_share = true;
+
 
         JoinMeetingParams params = new JoinMeetingParams();
 
