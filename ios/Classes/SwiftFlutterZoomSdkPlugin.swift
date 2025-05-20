@@ -24,6 +24,7 @@ public class SwiftFlutterZoomSdkPlugin: NSObject {
         context.enableLog = true
         context.bundleResPath = pluginBundlePath
         MobileRTC.shared().initialize(context)
+//        context.enableCustomizeMeetingUI = true
         
         let auth = MobileRTC.shared().getAuthService()
         auth?.delegate = self.authenticationDelegate.onAuth(result)
@@ -97,6 +98,8 @@ public class SwiftFlutterZoomSdkPlugin: NSObject {
     //Join Meeting with passed Meeting ID and Passcode
     public func joinMeeting(call: FlutterMethodCall, result: FlutterResult) {
         let meetingService = MobileRTC.shared().getMeetingService()
+        meetingService?.disableCloudWhiteboard(true)
+        
         let meetingSettings = MobileRTC.shared().getMeetingSettings()
         
         if (meetingService != nil) {
@@ -113,6 +116,16 @@ public class SwiftFlutterZoomSdkPlugin: NSObject {
             meetingSettings?.meetingInviteHidden = parseBoolean(data: arguments["disableDrive"]!, defaultValue: false)
             meetingSettings?.meetingTitleHidden = parseBoolean(data:arguments["disableTitlebar"]!, defaultValue: false)
             meetingSettings?.prePopulateWebinarRegistrationInfo(arguments["userEmail"]!!, username:arguments["userId"]!!);
+            
+            meetingSettings?.meetingParticipantHidden = true
+            meetingSettings?.meetingInviteHidden = true
+            meetingSettings?.meetingPasswordHidden = true
+            meetingSettings?.recordButtonHidden = true
+            meetingSettings?.meetingInviteUrlHidden = true
+            meetingSettings?.meetingMoreHidden = true
+            meetingSettings?.muteVideoWhenJoinMeeting()
+            meetingSettings?.disableShowVideoPreview(whenJoinMeeting: true)
+            
             
             let viewopts = parseBoolean(data:arguments["viewOptions"]!, defaultValue: false)
             
